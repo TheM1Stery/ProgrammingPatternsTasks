@@ -6,21 +6,21 @@ public class IgniUnitFactory : IUnitFactory
 {
     public IArcher CreateArcher()
     {
-        throw new NotImplementedException();
+        return new IgniArcher();
     }
 
     public IInfantry CreateInfantry()
     {
-        throw new NotImplementedException();
+        return new IgniInfantry();
     }
 
     public ITrebuchet CreateTrebuchet()
     {
-        throw new NotImplementedException();
+        return new IgniTrebuchet();
     }
 
     public ICavalry CreateCavalry()
     {
-        throw new NotImplementedException();
+        return new IgniCavalry();
     }
 }

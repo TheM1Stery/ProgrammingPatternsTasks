@@ -6,21 +6,21 @@ public class DendroUnitFactory : IUnitFactory
 {
     public IArcher CreateArcher()
     {
-        throw new NotImplementedException();
+        return new DendroArcher();
     }
 
     public IInfantry CreateInfantry()
     {
-        throw new NotImplementedException();
+        return new DendroInfantry();
     }
 
     public ITrebuchet CreateTrebuchet()
     {
-        throw new NotImplementedException();
+        return new DendroTrebuchet();
     }
 
     public ICavalry CreateCavalry()
     {
-        throw new NotImplementedException();
+        return new DendroCavalry();
     }
 }

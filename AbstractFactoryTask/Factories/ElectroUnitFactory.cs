@@ -6,21 +6,21 @@ public class ElectroUnitFactory : IUnitFactory
 {
     public IArcher CreateArcher()
     {
-        throw new NotImplementedException();
+        return new ElectroArcher();
     }
 
     public IInfantry CreateInfantry()
     {
-        throw new NotImplementedException();
+        return new ElectroInfantry();
     }
 
     public ITrebuchet CreateTrebuchet()
     {
-        throw new NotImplementedException();
+        return new ElectroTrebuchet();
     }
 
     public ICavalry CreateCavalry()
     {
-        throw new NotImplementedException();
+        return new ElectroCavalry();
     }
 }

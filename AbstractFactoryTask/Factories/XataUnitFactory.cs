@@ -6,21 +6,21 @@ public class XataUnitFactory : IUnitFactory
 {
     public IArcher CreateArcher()
     {
-        throw new NotImplementedException();
+        return new IgniArcher();
     }
 
     public IInfantry CreateInfantry()
     {
-        throw new NotImplementedException();
+        return new XataInfantry();
     }
 
     public ITrebuchet CreateTrebuchet()
     {
-        throw new NotImplementedException();
+        return new XataTrebuchet();
     }
 
     public ICavalry CreateCavalry()
     {
-        throw new NotImplementedException();
+        return new XataCavalry();
     }
 }

@@ -6,21 +6,21 @@ public class CryoUnitFactory : IUnitFactory
 {
     public IArcher CreateArcher()
     {
-        throw new NotImplementedException();
+        return new CryoArcher();
     }
 
     public IInfantry CreateInfantry()
     {
-        throw new NotImplementedException();
+        return new CryoInfantry();
     }
 
     public ITrebuchet CreateTrebuchet()
     {
-        throw new NotImplementedException();
+        return new CryoTrebuchet();
     }
 
     public ICavalry CreateCavalry()
     {
-        throw new NotImplementedException();
+        return new CryoCavalry();
     }
 }
