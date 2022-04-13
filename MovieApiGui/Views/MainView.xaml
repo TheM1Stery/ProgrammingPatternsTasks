@@ -9,7 +9,9 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance vm:MainViewModel}"
         Icon="../Assets/MF-Logo.png"
-        Title="Movie Info" Height="450" Width="800">
+        GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
+        Title="Movie Info" Height="800" Width="600"
+        MinHeight="500" MinWidth="400">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:MovieListViewModel}">
             <local:MovieListView/>
@@ -19,6 +21,6 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </mah:MetroWindow>

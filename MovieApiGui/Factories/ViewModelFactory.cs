@@ -1,14 +1,16 @@
 ﻿using System;
 using MovieApiGui.ViewModels;
+using TMDbLib.Client;
 
 namespace MovieApiGui.Factories;
 
 public class ViewModelFactory : IViewModelFactory
 {
+    private readonly TMDbClient _client;
 
-    public ViewModelFactory()
+    public ViewModelFactory(TMDbClient client)
     {
-        
+        _client = client;
     }
     
     
@@ -17,7 +19,7 @@ public class ViewModelFactory : IViewModelFactory
         return viewModelType switch
         {
             ViewModelType.MovieInfo => new MovieInfoViewModel(),
-            ViewModelType.MovieList => new MovieListViewModel(),
+            ViewModelType.MovieList => new MovieListViewModel(_client),
             _ => throw new ArgumentException("Invalid viewModel type")
         };
     }

@@ -1,14 +1,36 @@
 ﻿<UserControl x:Class="MovieApiGui.Views.MovieListView"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MovieApiGui.Views"
+             xmlns:i = "http://schemas.microsoft.com/xaml/behaviors"
              xmlns:viewModels="clr-namespace:MovieApiGui.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance viewModels:MovieListViewModel}"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="800" d:DesignWidth="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.03*"/>
+            <RowDefinition Height="0.8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="0" mah:TextBoxHelper.Watermark="Search movie"/>
+        <Button Grid.Row="0" Grid.Column="1" Style="{DynamicResource MahApps.Styles.Button.Square.Accent}"
+                BorderBrush="{DynamicResource MahApps.Brushes.ThemeBackground}"
+                Content="Search"/>
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                 ItemsSource="{Binding MovieList}"
+                 SelectedItem="{Binding SelectedMovie}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding OpenMovieInfoCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
     </Grid>
 </UserControl>
