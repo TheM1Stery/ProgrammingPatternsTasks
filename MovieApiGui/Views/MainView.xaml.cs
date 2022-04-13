@@ -12,17 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace MovieApiGui.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class MainView : MetroWindow
     {
-        public MainView()
+        public MainView(object viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

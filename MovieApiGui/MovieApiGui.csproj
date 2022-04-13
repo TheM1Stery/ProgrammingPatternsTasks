@@ -9,6 +9,8 @@
 
     <ItemGroup>
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
+      <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+      <PackageReference Include="SimpleInjector" Version="5.3.3" />
     </ItemGroup>
 
 </Project>

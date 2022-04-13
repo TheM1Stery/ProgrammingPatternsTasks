@@ -6,5 +6,5 @@ namespace MovieApiGui.ViewModels;
 public partial class MovieListViewModel : BaseViewModel
 {
     [ObservableProperty] 
-    private ObservableCollection<object> _movieInfos;
+    private ObservableCollection<object>? _movieInfos; // should be changed to ObservableCollection<MovieInfo>!!!
 }
