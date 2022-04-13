@@ -11,6 +11,16 @@
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
       <PackageReference Include="MahApps.Metro" Version="2.4.9" />
       <PackageReference Include="SimpleInjector" Version="5.3.3" />
+      <PackageReference Include="TMDbLib" Version="1.9.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Assets" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\MF-Logo.png" />
+      <Resource Include="Assets\MF-Logo.png" />
     </ItemGroup>
 
 </Project>
