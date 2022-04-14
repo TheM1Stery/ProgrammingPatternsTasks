@@ -4,29 +4,43 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using CommunityToolkit.Mvvm.Messaging.Messages;
 using MovieApiGui.Factories;
+using MovieApiGui.Models;
+using MovieApiGui.Services;
 using TMDbLib.Client;
 using TMDbLib.Objects.Movies;
+using TMDbLib.Objects.Search;
 
 namespace MovieApiGui.ViewModels;
 
-public partial class MovieListViewModel : BaseViewModel
+public partial class MovieListViewModel : BaseViewModel, IRecipient<RequestMessage<MovieInfo?>>
 {
-    private readonly TMDbClient _client;
+    private readonly IMovieService _movieService;
 
     [ObservableProperty] 
-    private ObservableCollection<Movie>? _movieList;
+    private ObservableCollection<MovieInfo>? _movieList;
 
     [ObservableProperty] 
-    private Movie? _selectedMovie;
+    private MovieInfo? _selectedMovie;
 
-    public MovieListViewModel(TMDbClient client)
+    public MovieListViewModel(IMovieService movieService)
     {
-        _client = client;
+        _movieService = movieService;
     }
 
     [ICommand]
     private void OpenMovieInfo()
     {
         WeakReferenceMessenger.Default.Send(new ValueChangedMessage<ViewModelType>(ViewModelType.MovieInfo));
+    }
+
+    [ICommand]
+    private void Search()
+    {
+        
+    }
+    
+    public void Receive(RequestMessage<MovieInfo?> message)
+    {
+        message.Reply(_selectedMovie);
     }
 }

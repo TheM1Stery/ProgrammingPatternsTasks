@@ -1,4 +1,5 @@
 ﻿using System;
+using MovieApiGui.Services;
 using MovieApiGui.ViewModels;
 using TMDbLib.Client;
 
@@ -6,9 +7,10 @@ namespace MovieApiGui.Factories;
 
 public class ViewModelFactory : IViewModelFactory
 {
-    private readonly TMDbClient _client;
+    private readonly IMovieService _client;
 
-    public ViewModelFactory(TMDbClient client)
+
+    public ViewModelFactory(IMovieService client)
     {
         _client = client;
     }
