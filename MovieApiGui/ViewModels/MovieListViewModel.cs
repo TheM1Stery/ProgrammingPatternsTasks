@@ -6,9 +6,6 @@ using CommunityToolkit.Mvvm.Messaging.Messages;
 using MovieApiGui.Factories;
 using MovieApiGui.Models;
 using MovieApiGui.Services;
-using TMDbLib.Client;
-using TMDbLib.Objects.Movies;
-using TMDbLib.Objects.Search;
 
 namespace MovieApiGui.ViewModels;
 

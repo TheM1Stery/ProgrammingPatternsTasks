@@ -1,7 +1,6 @@
 ﻿using System;
 using MovieApiGui.Services;
 using MovieApiGui.ViewModels;
-using TMDbLib.Client;
 
 namespace MovieApiGui.Factories;
 

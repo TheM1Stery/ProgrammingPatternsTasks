@@ -1,17 +1,40 @@
-﻿using System.Net;
-using TMDbLib.Client;
-using TMDbLib.Utilities.Serializer;
+﻿using System;
+using System.Net;
+using System.Text;
+using MovieApiGui.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 
 namespace MovieApiGui.Services;
 
 
-// я для api TMDB использую NuGet package, чтобы его адаптировать под мой код, я создал этот клас
 public class TmdbService : IMovieService
 {
-    private readonly TMDbClient _client;
+    private readonly string? _apiKey;
 
-    public TmdbService(TMDbClient client)
+    private const string Website = "https://api.themoviedb.org/3/search/movie";
+
+    private readonly WebClient _client;
+    
+    public TmdbService(string? apiKey)
     {
-        _client = client;
+        _apiKey = apiKey;
+        _client = new WebClient();
+        _client.Encoding = Encoding.UTF8;
+    }
+
+
+    public List<MovieInfo>? GetMovies(string searchString)
+    {
+        var json = _client.DownloadString(Website +
+                               $"?api_key={_apiKey}&language=en-US&query={searchString}&page=1&include_adult=false");
+        var list = JsonSerializer.Deserialize<TmdbMovieInfoSearchCollection>(json)?.Results;
+        var movieInfos = list?.Select(x => new MovieInfo(x)).ToList();
+        if (movieInfos?.Count == 0)
+        {
+            throw new ArgumentException("Movie not found");
+        }
+        return movieInfos;
     }
 }

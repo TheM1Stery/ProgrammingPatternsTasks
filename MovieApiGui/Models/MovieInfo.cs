@@ -1,11 +1,18 @@
-﻿using TMDbLib.Objects.Movies;
+﻿namespace MovieApiGui.Models;
 
-namespace MovieApiGui.Models;
+
 
 public class MovieInfo
 {
-    public MovieInfo(Movie movie)
+    public MovieInfo(TmdbMovieInfo tmdbMovieInfo)
     {
         
     }
+
+    public MovieInfo(OmdbMovieInfo omdbMovieInfo)
+    {
+        
+    }
+    
+    
 }
