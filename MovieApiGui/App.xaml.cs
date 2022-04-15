@@ -46,13 +46,7 @@ namespace MovieApiGui
             container.RegisterSingleton(() => new MainView(container.GetInstance<MainViewModel>()));
 
             container.Verify();
-
-            var service = container.GetInstance<TmdbService>();
-
-
-            var list = service.GetMovies("pirates");
-
-
+            
             var window = container.GetInstance<MainView>();
             window.Show();
             
