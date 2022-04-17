@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace MovieApiGui.Models;
+namespace MovieApiGui.Models.Omdb;
 
 public class OmdbMovieInfoSearchCollection
 {
     [JsonPropertyName("Search")]
-    public List<OmdbMovieInfo>? Search { get; set; }
+    public List<OmdbSearchMovieInfo>? Search { get; set; }
 
     [JsonPropertyName("totalResults")]
     public string? TotalResults { get; set; }

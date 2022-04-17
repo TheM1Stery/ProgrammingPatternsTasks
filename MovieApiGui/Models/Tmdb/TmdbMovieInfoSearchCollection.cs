@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace MovieApiGui.Models;
+namespace MovieApiGui.Models.Tmdb;
 
 public class TmdbMovieInfoSearchCollection
 {
@@ -9,7 +9,7 @@ public class TmdbMovieInfoSearchCollection
     public int Page { get; set; }
 
     [JsonPropertyName("results")]
-    public List<TmdbMovieInfo>? Results { get; set; }
+    public List<TmdbMovieSearchInfo>? Results { get; set; }
 
     [JsonPropertyName("total_pages")]
     public int TotalPages { get; set; }

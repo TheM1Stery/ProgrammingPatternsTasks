@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
@@ -14,13 +15,17 @@ public partial class MovieListViewModel : BaseViewModel, IRecipient<RequestMessa
     private readonly IMovieService _movieService;
 
     [ObservableProperty] 
-    private ObservableCollection<MovieInfo>? _movieList;
+    private ObservableCollection<SearchInfo>? _movieList;
 
     [ObservableProperty] 
-    private MovieInfo? _selectedMovie;
+    private SearchInfo? _selectedMovie;
+
+    [ObservableProperty] 
+    private string? _searchString;
 
     public MovieListViewModel(IMovieService movieService)
     {
+        WeakReferenceMessenger.Default.Register(this);
         _movieService = movieService;
     }
 
@@ -33,11 +38,20 @@ public partial class MovieListViewModel : BaseViewModel, IRecipient<RequestMessa
     [ICommand]
     private void Search()
     {
-        
+        if (SearchString == null)
+            return;
+        var list = _movieService.GetMovies(SearchString);
+        if (list == null)
+        {
+            MessageBox.Show("Couldn't find anything based on the search or there was an error", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+        MovieList = new ObservableCollection<SearchInfo>(list!);
     }
     
     public void Receive(RequestMessage<MovieInfo?> message)
     {
-        message.Reply(_selectedMovie);
+        if (_selectedMovie?.Name != null)
+            message.Reply(_movieService.GetMovieByTitle(_selectedMovie.Name));
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MovieApiGui.Models;
+namespace MovieApiGui.Models.Omdb;
 
-public class OmdbMovieInfo
+public class OmdbSearchMovieInfo
 {
     [JsonPropertyName("Title")]
     public string? Title { get; set; }

@@ -5,5 +5,7 @@ namespace MovieApiGui.Services;
 
 public interface IMovieService
 {
-    public List<MovieInfo>? GetMovies(string searchString);
+    public List<SearchInfo>? GetMovies(string searchString);
+
+    public MovieInfo? GetMovieByTitle(string title);
 }

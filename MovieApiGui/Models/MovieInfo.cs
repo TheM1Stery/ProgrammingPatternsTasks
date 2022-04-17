@@ -1,18 +1,12 @@
-﻿namespace MovieApiGui.Models;
+﻿using System.Drawing;
+using System.IO;
+using System.Net;
 
-
+namespace MovieApiGui.Models;
 
 public class MovieInfo
 {
-    public MovieInfo(TmdbMovieInfo tmdbMovieInfo)
-    {
-        
-    }
+    
 
-    public MovieInfo(OmdbMovieInfo omdbMovieInfo)
-    {
-        
-    }
-    
-    
+    public string? PosterPath { get; init; }
 }

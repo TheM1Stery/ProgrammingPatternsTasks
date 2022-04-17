@@ -1,7 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
-using System.Windows.Media;
 using MovieApiGui.Factories;
 using MovieApiGui.Services;
 using MovieApiGui.Utilities;
@@ -19,7 +17,6 @@ namespace MovieApiGui
         private static string?[] GetApiKeys(string path)
         {
             var apiKeys = new string?[2];
-
             using var reader = new StreamReader(path);
 
             string? key;
@@ -48,6 +45,7 @@ namespace MovieApiGui
             container.Verify();
             
             var window = container.GetInstance<MainView>();
+            
             window.Show();
             
             base.OnStartup(e);

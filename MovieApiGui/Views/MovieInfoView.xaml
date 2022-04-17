@@ -10,6 +10,11 @@
              d:DataContext="{d:DesignInstance viewModels:MovieInfoViewModel}"
              d:DesignHeight="800" d:DesignWidth="600">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" Source="{Binding Poster, Mode=OneWay}"/>
         
     </Grid>
 </UserControl>

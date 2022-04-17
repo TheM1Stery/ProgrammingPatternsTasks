@@ -19,7 +19,7 @@
             <ColumnDefinition Width="0.9*"/>
             <ColumnDefinition Width="0.2*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="0" mah:TextBoxHelper.Watermark="Search movie"/>
+        <TextBox Grid.Row="0" Grid.Column="0" mah:TextBoxHelper.Watermark="Search movie" Text="{Binding SearchString}"/>
         <Button Grid.Row="0" Grid.Column="1" Style="{DynamicResource MahApps.Styles.Button.Square.Accent}"
                 BorderBrush="{DynamicResource MahApps.Brushes.ThemeBackground}"
                 Content="Search"
@@ -32,6 +32,11 @@
                     <i:InvokeCommandAction Command="{Binding OpenMovieInfoCommand}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </UserControl>

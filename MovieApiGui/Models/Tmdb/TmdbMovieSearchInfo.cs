@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace MovieApiGui.Models;
+namespace MovieApiGui.Models.Tmdb;
 
-public class TmdbMovieInfo
+public class TmdbMovieSearchInfo
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
