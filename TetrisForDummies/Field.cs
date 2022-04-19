@@ -16,9 +16,14 @@ public class Field
         _factory = factory;
     }
 
-    public void AddFigureToField(TetrisFigureType figureType)
+    public void AddFigureToField(TetrisFigureType figureType, Color color)
     {
-        _figures.Add(_factory?.GetFigure(figureType));
+        var figure = _factory?.GetFigure(figureType);
+        if (figure == null) 
+            return;
+        figure.Color = color;
+        figure.Position = _figures.Count + 1;
+        _figures.Add(figure);
     }
 
     public string GetField()
