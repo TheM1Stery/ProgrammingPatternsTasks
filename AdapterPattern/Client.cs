@@ -5,16 +5,15 @@ namespace AdapterPattern;
 
 public class Client
 {
-    public List<IDatabase> Databases { get; } = new();
+    private readonly List<IDatabase> _databases = new();
 
     public void AddDatabase(IDatabase database)
     {
-        Databases.Add(database);
+        _databases.Add(database);
     }
-    
     
     public IDatabase GetSpecifiedDatabase(string name)
     {
-        return Databases.First(x => x.Name == name);
+        return _databases.First(x => x.Name == name);
     }
 }
