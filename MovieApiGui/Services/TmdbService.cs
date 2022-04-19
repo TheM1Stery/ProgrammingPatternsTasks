@@ -47,7 +47,10 @@ public class TmdbService : IMovieService
         var movieInfo = JsonSerializer.Deserialize<TmdbMovieInfo?>(json);
         return new MovieInfo()
         {
-            PosterPath = "https://image.tmdb.org/t/p/w300" + movieInfo?.PosterPath
+            PosterPath = "https://image.tmdb.org/t/p/w300" + movieInfo?.PosterPath,
+            Plot = movieInfo?.Overview,
+            Title = movieInfo?.Title,
+            Year = movieInfo?.ReleaseDate?.Split('-')[0]
         };
     }
     

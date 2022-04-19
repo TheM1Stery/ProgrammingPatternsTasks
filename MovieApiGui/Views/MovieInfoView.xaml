@@ -8,13 +8,32 @@
              xmlns:viewModels="clr-namespace:MovieApiGui.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance viewModels:MovieInfoViewModel}"
-             d:DesignHeight="800" d:DesignWidth="600">
+             d:DesignHeight="1024" d:DesignWidth="768">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.0625*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.6*"/>
         </Grid.ColumnDefinitions>
-        <Image Grid.Row="0" Grid.Column="0" Source="{Binding Poster, Mode=OneWay}"/>
-        
+        <Image Grid.Row="0" Grid.Column="0">
+            <Image.Source>
+                <Binding Path="Poster">
+                    <Binding.TargetNullValue>
+                        <ImageSource>/Assets/error.png</ImageSource>
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image.Source>
+        </Image>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MovieInfo}" 
+                   FontSize="25"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="{Binding Plot}" FontSize="12"/>
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
+                Command="{Binding ReturnCommand}"
+                Content="Return"/>
     </Grid>
 </UserControl>

@@ -34,7 +34,7 @@
             </i:Interaction.Triggers>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
+                    <TextBlock Text="{Binding Name}" FontSize="30"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

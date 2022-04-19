@@ -53,7 +53,10 @@ public class OmdbService : IMovieService
         var movieInfo = JsonSerializer.Deserialize<OmdbMovieInfo?>(json);
         return new MovieInfo
         {
-            PosterPath = movieInfo?.Poster
+            PosterPath = movieInfo?.Poster,
+            Title = title,
+            Plot = movieInfo?.Plot,
+            Year = movieInfo?.Year
         };
     }
     

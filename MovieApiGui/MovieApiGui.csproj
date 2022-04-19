@@ -16,11 +16,14 @@
 
     <ItemGroup>
       <Folder Include="Assets" />
+      <Folder Include="Temp" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Assets\MF-Logo.png" />
       <Resource Include="Assets\MF-Logo.png" />
+      <None Remove="Assets\33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png" />
+      <Resource Include="Assets\error.png" />
     </ItemGroup>
 
 </Project>
