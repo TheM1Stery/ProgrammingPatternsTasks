@@ -28,7 +28,6 @@ public class Field
         {
             builder.Append(tetrisFigure?.FigureRepresentation + "\n\n");
         }
-
         return builder.ToString();
     }
     
