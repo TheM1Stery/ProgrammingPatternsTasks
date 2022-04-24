@@ -1,12 +1,6 @@
 ﻿namespace ChainOfResponsibilityPattern;
 
-public class CreditCard
+public record CreditCard(string? Number, string? Name, string? Surname, DateTime? ExpirationDate, int PinCode)
 {
-    public string? Number { get; set; }
-
-    public string? Name { get; set; }
-
-    public string? Surname { get; set; }
-
-    public DateTime? ExpirationDate { get; set; }
-}
+    public int Money { get; set; }
+};
